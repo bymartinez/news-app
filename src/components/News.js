@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import NewsItem from './NewsItem';
 
 class News extends React.Component {
   state = {
@@ -41,10 +42,10 @@ class News extends React.Component {
           type="text"
           className='form-control' 
           placeholder='Buscar noticias...' />
-        <button onClick={this.buscarNoticias}>Buscar</button>
+        <button onClick={this.buscarNoticias} className='btn btn-success'>Buscar</button>
 
         
-        {this.state.news.map((noticia) => <h1>{noticia.title}</h1>)}
+        {this.state.news.map((noticia) => <NewsItem image={noticia.urlToImage} title={noticia.title} content={noticia.content} />)}
       </div>
     );
   }
